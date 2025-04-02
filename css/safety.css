@@ -1,0 +1,288 @@
+/*
+* SiteFlow - Safety Monitoring CSS Styles
+*/
+
+/* Stats Cards */
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-primary-light {
+    background-color: rgba(37, 99, 235, 0.1);
+}
+
+.bg-success-light {
+    background-color: rgba(34, 197, 94, 0.1);
+}
+
+.bg-danger-light {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.bg-warning-light {
+    background-color: rgba(245, 158, 11, 0.1);
+}
+
+/* Safety Issue Table */
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.table .form-check {
+    margin-bottom: 0;
+}
+
+.resolved-row {
+    background-color: rgba(34, 197, 94, 0.05);
+}
+
+/* Safety Walks */
+.safety-walks .list-group-item {
+    transition: background-color 0.3s ease;
+}
+
+.safety-walks .list-group-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+}
+
+/* Badge Colors */
+.badge.bg-danger {
+    background-color: var(--danger) !important;
+}
+
+.badge.bg-success {
+    background-color: var(--success) !important;
+}
+
+.badge.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.badge.bg-warning {
+    background-color: var(--warning) !important;
+}
+
+.badge.bg-info {
+    background-color: var(--info) !important;
+}
+
+/* Compliance Items */
+.compliance-item {
+    margin-bottom: 1rem;
+}
+
+.compliance-item .progress {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.compliance-item .progress-bar {
+    border-radius: 1rem;
+}
+
+.text-success {
+    color: var(--success) !important;
+}
+
+.text-warning {
+    color: var(--warning) !important;
+}
+
+.text-danger {
+    color: var(--danger) !important;
+}
+
+/* Safety Insights */
+.safety-insight-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.safety-insight-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.insight-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Upload Area */
+.border-dashed {
+    border-style: dashed !important;
+}
+
+/* Modal Styles */
+.modal-body {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/* Safety Chart */
+.chart-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Issue Details */
+.issue-detail-row {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.issue-detail-row:last-child {
+    border-bottom: none;
+}
+
+.issue-detail-label {
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.issue-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.issue-photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.issue-photo img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.issue-photo:hover img {
+    transform: scale(1.03);
+}
+
+.issue-photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.issue-timeline {
+    position: relative;
+    padding-left: 30px;
+    margin-top: 1.5rem;
+}
+
+.issue-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--light);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    border: 3px solid white;
+    box-shadow: 0 0 0 1px var(--primary);
+}
+
+.timeline-item.danger::before {
+    background-color: var(--danger);
+    box-shadow: 0 0 0 1px var(--danger);
+}
+
+.timeline-item.success::before {
+    background-color: var(--success);
+    box-shadow: 0 0 0 1px var(--success);
+}
+
+.timeline-item.warning::before {
+    background-color: var(--warning);
+    box-shadow: 0 0 0 1px var(--warning);
+}
+
+.timeline-date {
+    color: var(--secondary);
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-content {
+    font-size: 0.95rem;
+}
+
+/* Safety AI Analysis */
+.ai-recommendation {
+    background-color: rgba(37, 99, 235, 0.05);
+    border-left: 4px solid var(--primary);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.25rem;
+}
+
+.ai-recommendation-title {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .issue-photos {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .issue-photo img {
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .issue-photos {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    
+    .issue-photo img {
+        height: 100px;
+    }
+}

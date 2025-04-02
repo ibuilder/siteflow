@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SiteFlow - AI Assistant</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/chat.css" />
+  </head>
+  <body>
+    <!-- Sidebar and Navbar Layout -->
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar -->
+      <div class="bg-dark text-white border-end" id="sidebar-wrapper">
+        <div class="sidebar-heading p-3">
+          <img
+            src="../assets/images/logo.svg"
+            alt="SiteFlow Logo"
+            width="30"
+            height="30"
+            class="d-inline-block align-text-top me-2"
+          />
+          <span class="fs-4 fw-bold">SiteFlow</span>
+        </div>
+        <div class="list-group list-group-flush nav-pills">
+          <a
+            href="dashboard.html"
+            class="list-group-item list-group-item-action text-white py-3"
+          >
+            <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+          </a>
+          <a
+            href="schedule.html"
+            class="list-group-item list-group-item-action text-white py-3"
+          >
+            <i class="fas fa-calendar-alt me-2"></i> Schedule
+          </a>
+          <a
+            href="progress-tracking.html"
+            class="list-group-item list-group-item-action text-white py-3"
+          >
+            <i class="fas fa-tasks me-2"></i> Progress Tracking
+          </a>
+          <a
+            href="safety.html"
+            class="list-group-item list-group-item-action text-white py-3"
+          >
+            <i class="fas fa-hard-hat me-2"></i> Safety
+          </a>
+          <a
+            href="chat.html"
+            class="list-group-item list-group-item-action text-white active py-3"
+          >
+            <i class="fas fa-robot me-2"></i> AI Assistant
+          </a>
+          <a
+            href="settings.html"
+            class="list-group-item list-group-item-action text-white py-3"
+          >
+            <i class="fas fa-cog me-2"></i> Settings
+          </a>
+        </div>
+        <div class="mt-auto p-3">
+          <a href="../index.html" class="btn btn-outline-light w-100">
+            <i class="fas fa-sign-out-alt me-2"></i> Logout
+          </a>
+        </div>
+      </div>
+
+      <!-- Page Content -->
+      <div id="page-content-wrapper" class="bg-light flex-grow-1">
+        <!-- Top Navigation -->
+        <nav
+          class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm"
+        >
+          <div class="container-fluid">
+            <button class="btn btn-sm" id="sidebarToggle">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="d-flex align-items-center">
+              <div class="dropdown">
+                <a
+                  class="dropdown-toggle text-decoration-none"
+                  href="#"
+                  id="projectDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-building me-1"></i> Downtown Office Tower
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="projectDropdown">
+                  <li>
+                    <a class="dropdown-item" href="#">Downtown Office Tower</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Riverside Apartments</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      >Central Hospital Renovation</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Add New Project</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-flex">
+              <button
+                class="btn btn-sm btn-outline-primary me-2"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#uploadPhotoModal"
+              >
+                <i class="fas fa-camera me-1"></i> Upload Photo
+              </button>
+              <div class="dropdown">
+                <a
+                  class="dropdown-toggle text-decoration-none d-flex align-items-center"
+                  href="#"
+                  id="userDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="../assets/images/user-avatar.jpg"
+                    alt="User Avatar"
+                    class="rounded-circle me-2"
+                    width="32"
+                    height="32"
+                  />
+                  <span class="d-none d-sm-inline">John Carpenter</span>
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="userDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      ><i class="fas fa-user me-2"></i> Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      ><i class="fas fa-cog me-2"></i> Settings</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="../index.html"
+                      ><i class="fas fa-sign-out-alt me-2"></i> Logout</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Chat Interface -->
+        <div class="chat-wrapper">
+          <!-- Sidebar for Topics/History -->
+          <div class="chat-sidebar">
+            <div class="chat-sidebar-header">
+              <h5 class="mb-0">AI Assistant</h5>
+              <button class="btn btn-sm btn-primary" id="newChatBtn">
+                <i class="fas fa-plus me-1"></i> New Chat
+              </button>
+            </div>
+            <div class="chat-sidebar-body">
+              <div class="chat-history">
+                <h6 class="text-muted mb-3">Recent Chats</h6>
+                <ul class="list-unstyled">
+                  <li class="chat-history-item active">
+                    <a href="#">
+                      <i class="fas fa-comments me-2"></i> Current chat
+                      <span class="chat-time">Just now</span>
+                    </a>
+                  </li>
+                  <li class="chat-history-item">
+                    <a href="#">
+                      <i class="fas fa-comments me-2"></i> Progress in East Wing
+                      <span class="chat-time">Yesterday</span>
+                    </a>
+                  </li>
+                  <li class="chat-history-item">
+                    <a href="#">
+                      <i class="fas fa-comments me-2"></i> Drywall installation
+                      status
+                      <span class="chat-time">Apr 1, 2025</span>
+                    </a>
+                  </li>
+                  <li class="chat-history-item">
+                    <a href="#">
+                      <i class="fas fa-comments me-2"></i> Electrical inspection
+                      readiness
+                      <span class="chat-time">Mar 29, 2025</span>
+                    </a>
+                  </li>
+                  <li class="chat-history-item">
+                    <a href="#">
+                      <i class="fas fa-comments me-2"></i> HVAC system
+                      installation
+                      <span class="chat-time">Mar 28, 2025</span>
+                    </a>
+                  </li>
+                </ul>
+
+                <h6 class="text-muted mb-3 mt-4">Suggested Topics</h6>
+                <ul class="list-unstyled">
+                  <li class="suggested-topic">
+                    <a
+                      href="#"
+                      data-topic="What's the current progress on the 4th floor?"
+                    >
+                      <i class="fas fa-question-circle me-2"></i> Current
+                      progress on 4th floor
+                    </a>
+                  </li>
+                  <li class="suggested-topic">
+                    <a
+                      href="#"
+                      data-topic="Show me the safety issues that need attention today."
+                    >
+                      <i class="fas fa-question-circle me-2"></i> Today's safety
+                      issues
+                    </a>
+                  </li>
+                  <li class="suggested-topic">
+                    <a
+                      href="#"
+                      data-topic="What are the upcoming milestones for the next two weeks?"
+                    >
+                      <i class="fas fa-question-circle me-2"></i> Upcoming
+                      milestones
+                    </a>
+                  </li>
+                  <li class="suggested-topic">
+                    <a
+                      href="#"
+                      data-topic="Compare actual vs planned progress for the East Wing."
+                    >
+                      <i class="fas fa-question-circle me-2"></i> East Wing
+                      progress comparison
+                    </a>
+                  </li>
+                  <li class="suggested-topic">
+                    <a
+                      href="#"
+                      data-topic="What materials are needed for tomorrow's work?"
+                    >
+                      <i class="fas fa-question-circle me-2"></i> Materials
+                      needed tomorrow
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Chat Area -->
+          <div class="chat-main">
+            <div class="chat-container">
+              <!-- Welcome Message -->
+              <div class="chat-welcome text-center">
+                <div class="ai-avatar">
+                  <i class="fas fa-robot"></i>
+                </div>
+                <h4>SiteFlow AI Assistant</h4>
+                <p class="text-muted mb-4">
+                  Ask me about project progress, schedules, safety issues, or
+                  anything related to your construction site.
+                </p>
+
+                <div class="quick-prompts">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div
+                        class="quick-prompt-card"
+                        data-prompt="Show me the current progress status across all areas of the project."
+                      >
+                        <i class="fas fa-chart-line"></i>
+                        <h6>Project Progress</h6>
+                        <p>
+                          Get an update on overall project status and completion
+                          percentage
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div
+                        class="quick-prompt-card"
+                        data-prompt="What tasks are scheduled for today and are there any delays?"
+                      >
+                        <i class="fas fa-calendar-check"></i>
+                        <h6>Today's Schedule</h6>
+                        <p>
+                          View tasks for today and check for any potential
+                          delays
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div
+                        class="quick-prompt-card"
+                        data-prompt="Show me the latest safety issues and their status."
+                      >
+                        <i class="fas fa-hard-hat"></i>
+                        <h6>Safety Check</h6>
+                        <p>
+                          Get an overview of current safety issues and
+                          compliance status
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div
+                        class="quick-prompt-card"
+                        data-prompt="Compare the actual progress vs. the planned timeline for the East Wing."
+                      >
+                        <i class="fas fa-chart-bar"></i>
+                        <h6>Progress Analysis</h6>
+                        <p>
+                          Compare actual vs. planned progress for any area of
+                          the project
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Messages will be displayed here -->
+              <div class="chat-messages"></div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+              <div class="chat-actions">
+                <button
+                  class="btn btn-sm btn-outline-secondary"
+                  id="uploadFileBtn"
+                >
+                  <i class="fas fa-paperclip"></i>
+                </button>
+                <input type="file" id="fileInput" class="d-none" multiple />
+              </div>
+              <div class="chat-input">
+                <textarea
+                  class="form-control"
+                  id="messageInput"
+                  placeholder="Ask me anything about your project..."
+                  rows="1"
+                ></textarea>
+                <button class="btn btn-primary" id="sendMessageBtn">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Drawing & Photo Viewer Panel -->
+          <div class="chat-panel">
+            <div class="chat-panel-header">
+              <h5 class="mb-0">Project Resources</h5>
+              <button
+                class="btn btn-sm btn-link text-muted"
+                id="togglePanelBtn"
+              >
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="chat-panel-body">
+              <div class="resource-tabs">
+                <ul class="nav nav-pills mb-3" id="resourceTabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="drawings-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#drawings-content"
+                      type="button"
+                      role="tab"
+                      aria-controls="drawings-content"
+                      aria-selected="true"
+                    >
+                      Drawings
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="photos-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#photos-content"
+                      type="button"
+                      role="tab"
+                      aria-controls="photos-content"
+                      aria-selected="false"
+                    >
+                      Photos
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="docs-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#docs-content"
+                      type="button"
+                      role="tab"
+                      aria-controls="docs-content"
+                      aria-selected="false"
+                    >
+                      Documents
+                    </button>
+                  </li>
+                </ul>
+                <div class="tab-content" id="resourceTabsContent">
+                  <!-- Drawings Tab -->
+                  <div
+                    class="tab-pane fade show active"
+                    id="drawings-content"
+                    role="tabpanel"
+                    aria-labelledby="drawings-tab"
+                  >
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        placeholder="Search drawings..."
+                      />
+                      <button
+                        class="btn btn-outline-secondary btn-sm"
+                        type="button"
+                      >
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+
+                    <div class="resource-list">
+                      <div
+                        class="resource-item active"
+                        data-resource="floorplan-4"
+                      >
+                        <div class="resource-item-preview">
+                          <img
+                            src="../assets/images/floorplan-4.jpg"
+                            alt="Floor Plan - Level 4"
+                          />
+                        </div>
+                        <div class="resource-item-details">
+                          <h6>Floor Plan - Level 4</h6>
+                          <p class="small text-muted">Architectural Drawing</p>
+                        </div>
+                      </div>
+                      <div
+                        class="resource-item"
+                        data-resource="electrical-east"
+                      >
+                        <div class="resource-item-preview">
+                          <img
+                            src="../assets/images/electrical-east.jpg"
+                            alt="Electrical Layout - East Wing"
+                          />
+                        </div>
+                        <div class="resource-item-details">
+                          <h6>Electrical Layout - East Wing</h6>
+                          <p class="small text-muted">Electrical Drawing</p>
+                        </div>
+                      </div>
+                      <div class="resource-item" data-resource="hvac-layout">
+                        <div class="resource-item-preview">
+                          <img
+                            src="../assets/images/hvac-layout.jpg"
+                            alt="HVAC Layout"
+                          />
+                        </div>
+                        <div class="resource-item-details">
+                          <h6>HVAC Layout</h6>
+                          <p class="small text-muted">Mechanical Drawing</p>
+                        </div>
+                      </div>
+                      <div
+                        class="resource-item"
+                        data-resource="plumbing-basement"
+                      >
+                        <div class="resource-item-preview">
+                          <img
+                            src="../assets/images/plumbing-basement.jpg"
+                            alt="Plumbing - Basement"
+                          />
+                        </div>
+                        <div class="resource-item-details">
+                          <h6>Plumbing - Basement</h6>
+                          <p class="small text-muted">Plumbing Drawing</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="drawing-view">
+                      <div class="drawing-toolbar">
+                        <div class="zoom-controls">
+                          <button
+                            class="btn btn-sm btn-outline-secondary"
+                            id="zoomIn"
+                          >
+                            <i class="fas fa-search-plus"></i>
+                          </button>
+                          <button
+                            class="btn btn-sm btn-outline-secondary"
+                            id="zoomOut"
+                          >
+                            <i class="fas fa-search-minus"></i>
+                          </button>
+                          <button
+                            class="btn btn-sm btn-outline-secondary"
+                            id="zoomReset"
+                          >
+                            <i class="fas fa-sync-alt"></i>
+                          </button>
+                        </div>
+                        <button
+                          class="btn btn-sm btn-outline-primary"
+                          id="showAIInsights"
+                        >
+                          <i class="fas fa-robot me-1"></i> AI Insights
+                        </button>
+                      </div>
+
+                      <div class="drawing-container">
+                        <img
+                          src="../assets/images/floorplan-4.jpg"
+                          alt="Floor Plan - Level 4"
+                          id="currentDrawing"
+                        />
+
+                        <!-- AI Annotation Markers -->
+                        <div
+                          class="drawing-annotation"
+                          style="top: 30%; left: 25%"
+                          data-annotation="Wall framing complete, ready for drywall installation."
+                        >
+                          <div class="annotation-marker">1</div>
+                        </div>
+                        <div
+                          class="drawing-annotation"
+                          style="top: 45%; left: 60%"
+                          data-annotation="Electrical rough-in 85% complete. 3 outlets pending installation."
+                        >
+                          <div class="annotation-marker">2</div>
+                        </div>
+                        <div
+                          class="drawing-annotation"
+                          style="top: 65%; left: 40%"
+                          data-annotation="HVAC ductwork installed. Pending final inspection."
+                        >
+                          <div class="annotation-marker">3</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Photos Tab -->
+                  <div
+                    class="tab-pane fade"
+                    id="photos-content"
+                    role="tabpanel"
+                    aria-labelledby="photos-tab"
+                  >
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        placeholder="Search photos..."
+                      />
+                      <button
+                        class="btn btn-outline-secondary btn-sm"
+                        type="button"
+                      >
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+
+                    <div class="photos-grid">
+                      <div class="photo-item">
+                        <img
+                          src="../assets/images/site-photo-1.jpg"
+                          alt="East Wing Progress"
+                        />
+                        <div class="photo-info">
+                          <h6>East Wing Progress</h6>
+                          <p>Apr 1, 2025</p>
+                        </div>
+                      </div>
+                      <div class="photo-item">
+                        <img
+                          src="../assets/images/site-photo-2.jpg"
+                          alt="Drywall Installation - 4th Floor"
+                        />
+                        <div class="photo-info">
+                          <h6>Drywall Installation - 4th Floor</h6>
+                          <p>Apr 1, 2025</p>
+                        </div>
+                      </div>
+                      <div class="photo-item">
+                        <img
+                          src="../assets/images/site-photo-3.jpg"
+                          alt="Electrical Panel Installation"
+                        />
+                        <div class="photo-info">
+                          <h6>Electrical Panel Installation</h6>
+                          <p>Mar 31, 2025</p>
+                        </div>
+                      </div>
+                      <div class="photo-item">
+                        <img
+                          src="../assets/images/site-photo-4.jpg"
+                          alt="HVAC Ductwork"
+                        />
+                        <div class="photo-info">
+                          <h6>HVAC Ductwork</h6>
+                          <p>Mar 31, 2025</p>
+                        </div>
+                      </div>
+                      <div class="photo-item">
+                        <img
+                          src="../assets/images/site-photo-5.jpg"
+                          alt="Bathroom Tile Work"
+                        />
+                        <div class="photo-info">
+                          <h6>Bathroom Tile Work</h6>
+                          <p>Mar 30, 2025</p>
+                        </div>
+                      </div>
+                      <div class="photo-item">
+                        <img
+                          src="../assets/images/site-photo-6.jpg"
+                          alt="Window Installation - West Wing"
+                        />
+                        <div class="photo-info">
+                          <h6>Window Installation - West Wing</h6>
+                          <p>Mar 30, 2025</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="photo-viewer">
+                      <div class="photo-toolbar">
+                        <button
+                          class="btn btn-sm btn-outline-secondary"
+                          id="prevPhoto"
+                        >
+                          <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span class="photo-title">East Wing Progress</span>
+                        <button
+                          class="btn btn-sm btn-outline-secondary"
+                          id="nextPhoto"
+                        >
+                          <i class="fas fa-chevron-right"></i>
+                        </button>
+                      </div>
+                      <div class="photo-container">
+                        <img
+                          src="../assets/images/site-photo-1.jpg"
+                          alt="East Wing Progress"
+                          id="currentPhoto"
+                        />
+                      </div>
+                      <div class="photo-metadata">
+                        <div class="photo-time">
+                          <i class="fas fa-clock me-1"></i> Apr 1, 2025, 10:30
+                          AM
+                        </div>
+                        <div class="photo-location">
+                          <i class="fas fa-map-marker-alt me-1"></i> East Wing,
+                          Level 4
+                        </div>
+                        <div class="photo-tags">
+                          <span class="badge bg-primary">Progress</span>
+                          <span class="badge bg-secondary">East Wing</span>
+                          <span class="badge bg-info">Drywall</span>
+                        </div>
+                      </div>
+                      <div class="photo-ai-analysis">
+                        <div class="ai-analysis-header">
+                          <i class="fas fa-robot me-1"></i> AI Analysis
+                        </div>
+                        <ul class="ai-analysis-list">
+                          <li>
+                            <i
+                              class="fas fa-check-circle text-success me-1"
+                            ></i>
+                            Drywall installation approximately 68% complete
+                          </li>
+                          <li>
+                            <i
+                              class="fas fa-check-circle text-success me-1"
+                            ></i>
+                            PPE compliance: 100% (3 workers visible)
+                          </li>
+                          <li>
+                            <i
+                              class="fas fa-check-circle text-success me-1"
+                            ></i>
+                            No safety issues detected
+                          </li>
+                          <li>
+                            <i class="fas fa-info-circle text-primary me-1"></i>
+                            Estimated completion date: April 3, 2025
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Documents Tab -->
+                  <div
+                    class="tab-pane fade"
+                    id="docs-content"
+                    role="tabpanel"
+                    aria-labelledby="docs-tab"
+                  >
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        placeholder="Search documents..."
+                      />
+                      <button
+                        class="btn btn-outline-secondary btn-sm"
+                        type="button"
+                      >
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+
+                    <div class="documents-list">
+                      <div class="document-item">
+                        <div class="document-icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="document-details">
+                          <h6>Project Specifications</h6>
+                          <p class="small text-muted">PDF Document, 15 MB</p>
+                        </div>
+                        <div class="document-actions">
+                          <button class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-download"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="document-item">
+                        <div class="document-icon">
+                          <i class="fas fa-file-excel"></i>
+                        </div>
+                        <div class="document-details">
+                          <h6>Materials Inventory</h6>
+                          <p class="small text-muted">
+                            Excel Spreadsheet, 2.3 MB
+                          </p>
+                        </div>
+                        <div class="document-actions">
+                          <button class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-download"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="document-item">
+                        <div class="document-icon">
+                          <i class="fas fa-file-word"></i>
+                        </div>
+                        <div class="document-details">
+                          <h6>Inspection Checklist</h6>
+                          <p class="small text-muted">Word Document, 1.1 MB</p>
+                        </div>
+                        <div class="document-actions">
+                          <button class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-download"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="document-item">
+                        <div class="document-icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="document-details">
+                          <h6>Safety Protocols</h6>
+                          <p class="small text-muted">PDF Document, 5.7 MB</p>
+                        </div>
+                        <div class="document-actions">
+                          <button class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-download"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="document-item">
+                        <div class="document-icon">
+                          <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="document-details">
+                          <h6>Project Timeline</h6>
+                          <p class="small text-muted">
+                            Microsoft Project, 3.2 MB
+                          </p>
+                        </div>
+                        <div class="document-actions">
+                          <button class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-download"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upload Photo Modal -->
+    <div
+      class="modal fade"
+      id="uploadPhotoModal"
+      tabindex="-1"
+      aria-labelledby="uploadPhotoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="uploadPhotoModalLabel">Upload Photo</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="upload-area mb-4">
+              <div class="text-center p-5 border-2 border-dashed rounded">
+                <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
+                <h5>Drag and drop files here</h5>
+                <p class="text-muted">or</p>
+                <button type="button" class="btn btn-primary" id="browseFiles">
+                  Browse Files
+                </button>
+                <input
+                  type="file"
+                  id="fileInput"
+                  class="d-none"
+                  multiple
+                  accept="image/*"
+                />
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="photoLocation" class="form-label">Location</label>
+              <select class="form-select" id="photoLocation">
+                <option selected>Select location</option>
+                <option>East Wing - 4th Floor</option>
+                <option>West Wing - 3rd Floor</option>
+                <option>Central Core - All Floors</option>
+                <option>Basement</option>
+                <option>Roof</option>
+              </select>
+            </div>
+            <div class="form-group mb-3">
+              <label for="photoDescription" class="form-label"
+                >Description</label
+              >
+              <textarea
+                class="form-control"
+                id="photoDescription"
+                rows="3"
+                placeholder="Describe what's in the photo..."
+              ></textarea>
+            </div>
+            <div class="form-check mb-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="updateScheduleCheck"
+                checked
+              />
+              <label class="form-check-label" for="updateScheduleCheck">
+                Allow AI to update schedule based on this photo
+              </label>
+            </div>
+            <div class="form-check mb-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="safetyCheckCheck"
+              />
+              <label class="form-check-label" for="safetyCheckCheck">
+                Perform safety check on this photo
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="uploadButton">
+              Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawing Insights Modal -->
+    <div
+      class="modal fade"
+      id="drawingInsightsModal"
+      tabindex="-1"
+      aria-labelledby="drawingInsightsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="drawingInsightsModalLabel">
+              AI Insights: Floor Plan - Level 4
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="ai-insights-container">
+              <div class="ai-insights-header mb-4">
+                <div class="d-flex align-items-center">
+                  <div class="ai-robot-icon me-3">
+                    <i class="fas fa-robot"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-1">AI Drawing Analysis</h5>
+                    <p class="text-muted mb-0">
+                      Comparing plan vs. actual construction progress
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ai-insights-summary mb-4">
+                <div class="card border-0 bg-light">
+                  <div class="card-body">
+                    <h6 class="card-title">Progress Summary</h6>
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        Overall completion: 68% (2% ahead of schedule)
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        Framing: 100% complete
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        Electrical rough-in: 85% complete
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        Plumbing rough-in: 90% complete
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        HVAC installation: 75% complete
+                      </li>
+                      <li>
+                        <i
+                          class="fas fa-exclamation-circle text-warning me-2"
+                        ></i>
+                        Drywall installation: 42% complete (5% behind schedule)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ai-insights-details">
+                <h6 class="mb-3">Detailed Insights</h6>
+
+                <div class="insight-item mb-3">
+                  <div class="insight-marker">1</div>
+                  <div class="insight-content">
+                    <h6>Wall Framing (North Area)</h6>
+                    <p>
+                      Wall framing in the north section is complete and ready
+                      for drywall installation. All wall studs are properly
+                      spaced and aligned according to the plans.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="insight-item mb-3">
+                  <div class="insight-marker">2</div>
+                  <div class="insight-content">
+                    <h6>Electrical Rough-In (East Area)</h6>
+                    <p>
+                      Electrical rough-in work is 85% complete in the east
+                      section. Three outlets are still pending installation. The
+                      electrical panel has been mounted but not yet wired.
+                    </p>
+                    <div class="insight-image">
+                      <img
+                        src="../assets/images/electrical-progress.jpg"
+                        alt="Electrical Progress"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="insight-item mb-3">
+                  <div class="insight-marker">3</div>
+                  <div class="insight-content">
+                    <h6>HVAC Ductwork (Central Area)</h6>
+                    <p>
+                      HVAC ductwork installation is complete in the central
+                      section. The system is ready for final inspection. Based
+                      on photos from yesterday, all vents are properly
+                      positioned according to the mechanical drawings.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="insight-item attention-required">
+                  <div class="insight-marker">!</div>
+                  <div class="insight-content">
+                    <h6>
+                      Attention Required: Drywall Installation (West Area)
+                    </h6>
+                    <p>
+                      Drywall installation in the west section is behind
+                      schedule. Based on the latest progress photos,
+                      approximately 42% of the drywall has been installed, which
+                      is 5% behind the planned schedule.
+                    </p>
+                    <div class="recommendation">
+                      <strong>Recommendation:</strong> Assign additional workers
+                      to the drywall installation team for the next 3 days to
+                      catch up with the schedule.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">
+              <i class="fas fa-download me-1"></i> Download Full Report
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+    <script src="../js/chat.js"></script>
+  </body>
+</html>

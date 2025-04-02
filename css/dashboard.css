@@ -1,0 +1,177 @@
+/*
+* SiteFlow - Dashboard CSS Styles
+*/
+
+/* Sidebar Styles */
+#sidebar-wrapper {
+    min-height: 100vh;
+    width: 250px;
+    transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 250px;
+}
+
+.list-group-item {
+    border: none;
+    background-color: transparent;
+}
+
+.list-group-item-action {
+    color: rgba(255, 255, 255, 0.7);
+    padding-left: 1.5rem;
+}
+
+.list-group-item-action:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.list-group-item-action.active {
+    color: white;
+    background-color: var(--primary);
+    border-radius: 0;
+}
+
+/* Page Content Wrapper */
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: -250px;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+        margin-left: -250px;
+    }
+}
+
+/* Stats Cards */
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-primary-light {
+    background-color: rgba(37, 99, 235, 0.1);
+}
+
+.bg-success-light {
+    background-color: rgba(34, 197, 94, 0.1);
+}
+
+.bg-danger-light {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.bg-warning-light {
+    background-color: rgba(245, 158, 11, 0.1);
+}
+
+.badge.bg-blue {
+    background-color: #3b82f6;
+}
+
+/* Task Lists */
+.task-list .list-group-item {
+    transition: background-color 0.3s ease;
+}
+
+.task-list .list-group-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.bg-blue-50 {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Activity Feed */
+.activity-icon {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chat Styles */
+.chat-container {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+.chat-message {
+    margin-bottom: 1rem;
+}
+
+.chat-message .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2e8f0;
+}
+
+.chat-message .avatar i {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message-bubble {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 0.75rem 1rem;
+    max-width: 75%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Upload Modal */
+.border-dashed {
+    border-style: dashed !important;
+}
+
+/* Progress Chart */
+.chart-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Progress Items */
+.progress-item .progress {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.progress-item .progress-bar {
+    border-radius: 1rem;
+}

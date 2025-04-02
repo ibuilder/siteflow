@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiteFlow - Safety Monitoring</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/safety.css">
+</head>
+<body>
+    <!-- Sidebar and Navbar Layout -->
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-dark text-white border-end" id="sidebar-wrapper">
+            <div class="sidebar-heading p-3">
+                <img src="../assets/images/logo.svg" alt="SiteFlow Logo" width="30" height="30" class="d-inline-block align-text-top me-2">
+                <span class="fs-4 fw-bold">SiteFlow</span>
+            </div>
+            <div class="list-group list-group-flush nav-pills">
+                <a href="dashboard.html" class="list-group-item list-group-item-action text-white py-3">
+                    <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                </a>
+                <a href="schedule.html" class="list-group-item list-group-item-action text-white py-3">
+                    <i class="fas fa-calendar-alt me-2"></i> Schedule
+                </a>
+                <a href="progress-tracking.html" class="list-group-item list-group-item-action text-white py-3">
+                    <i class="fas fa-tasks me-2"></i> Progress Tracking
+                </a>
+                <a href="safety.html" class="list-group-item list-group-item-action text-white active py-3">
+                    <i class="fas fa-hard-hat me-2"></i> Safety
+                </a>
+                <a href="chat.html" class="list-group-item list-group-item-action text-white py-3">
+                    <i class="fas fa-robot me-2"></i> AI Assistant
+                </a>
+                <a href="settings.html" class="list-group-item list-group-item-action text-white py-3">
+                    <i class="fas fa-cog me-2"></i> Settings
+                </a>
+            </div>
+            <div class="mt-auto p-3">
+                <a href="../index.html" class="btn btn-outline-light w-100">
+                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </a>
+            </div>
+        </div>
+        
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="bg-light flex-grow-1">
+            <!-- Top Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+                <div class="container-fluid">
+                    <button class="btn btn-sm" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="d-flex align-items-center">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle text-decoration-none" href="#" id="projectDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-building me-1"></i> Downtown Office Tower
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="projectDropdown">
+                                <li><a class="dropdown-item" href="#">Downtown Office Tower</a></li>
+                                <li><a class="dropdown-item" href="#">Riverside Apartments</a></li>
+                                <li><a class="dropdown-item" href="#">Central Hospital Renovation</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Add New Project</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <button class="btn btn-sm btn-outline-primary me-2" type="button" data-bs-toggle="modal" data-bs-target="#uploadPhotoModal">
+                            <i class="fas fa-camera me-1"></i> Upload Photo
+                        </button>
+                        <div class="dropdown">
+                            <a class="dropdown-toggle text-decoration-none d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../assets/images/user-avatar.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                                <span class="d-none d-sm-inline">John Carpenter</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="../index.html"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Page Content -->
+            <div class="container-fluid p-4">
+                <!-- Safety Header -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h2 class="mb-1">Safety Monitoring</h2>
+                        <p class="text-muted">Real-time safety tracking and violation detection</p>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end align-items-center">
+                        <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#scheduleSafetyWalkModal">
+                            <i class="fas fa-walking me-1"></i> Schedule Safety Walk
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reportSafetyIssueModal">
+                            <i class="fas fa-exclamation-triangle me-1"></i> Report Issue
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Safety Overview -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="stat-icon bg-success-light me-3">
+                                        <i class="fas fa-clipboard-check text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title mb-0">Safety Score</h6>
+                                        <p class="text-muted mb-0 small">Current Rating</p>
+                                    </div>
+                                </div>
+                                <h2 class="mb-0">98%</h2>
+                                <div class="progress mt-2 mb-2" style="height: 6px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 98%;" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="mb-0 small">
+                                    <i class="fas fa-arrow-up text-success me-1"></i> Up 2% from last week
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="stat-icon bg-danger-light me-3">
+                                        <i class="fas fa-exclamation-triangle text-danger"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title mb-0">Open Issues</h6>
+                                        <p class="text-muted mb-0 small">Safety Violations</p>
+                                    </div>
+                                </div>
+                                <h2 class="mb-0">3</h2>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span class="badge bg-danger">High: 1</span>
+                                    <span class="badge bg-warning">Medium: 1</span>
+                                    <span class="badge bg-info">Low: 1</span>
+                                </div>
+                                <p class="mt-2 mb-0 small">
+                                    <i class="fas fa-arrow-down text-success me-1"></i> Down 2 from yesterday
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="stat-icon bg-primary-light me-3">
+                                        <i class="fas fa-camera-retro text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title mb-0">Safety Walks</h6>
+                                        <p class="text-muted mb-0 small">This Week</p>
+                                    </div>
+                                </div>
+                                <h2 class="mb-0">14</h2>
+                                <div class="progress mt-2 mb-2" style="height: 6px;">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="mb-0 small">
+                                    14 out of 20 scheduled walks completed (70%)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="stat-icon bg-warning-light me-3">
+                                        <i class="fas fa-clock text-warning"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title mb-0">Response Time</h6>
+                                        <p class="text-muted mb-0 small">Average</p>
+                                    </div>
+                                </div>
+                                <h2 class="mb-0">1.2h</h2>
+                                <div class="progress mt-2 mb-2" style="height: 6px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="mb-0 small">
+                                    <i class="fas fa-arrow-down text-success me-1"></i> 30 min faster than target
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Safety Issues Table -->
+                    <div class="col-lg-8">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">Recent Safety Issues</h5>
+                                    <div>
+                                        <select class="form-select form-select-sm d-inline-block w-auto me-2">
+                                            <option value="all" selected>All Issues</option>
+                                            <option value="open">Open</option>
+                                            <option value="resolved">Resolved</option>
+                                        </select>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col" style="width: 60px;">#</th>
+                                                <th scope="col">Issue</th>
+                                                <th scope="col" style="width: 120px;">Location</th>
+                                                <th scope="col" style="width: 120px;">Detected By</th>
+                                                <th scope="col" style="width: 120px;">Date</th>
+                                                <th scope="col" style="width: 100px;">Priority</th>
+                                                <th scope="col" style="width: 100px;">Status</th>
+                                                <th scope="col" style="width: 100px;">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Missing guardrail on 4th floor scaffolding</td>
+                                                <td>East Wing</td>
+                                                <td>AI Detection</td>
+                                                <td>Apr 1, 2025</td>
+                                                <td><span class="badge bg-danger">High</span></td>
+                                                <td><span class="badge bg-warning">In Progress</span></td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-outline-secondary view-issue" data-bs-toggle="tooltip" title="View Details">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" title="Edit">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Improper storage of flammable materials</td>
+                                                <td>Basement</td>
+                                                <td>AI Detection</td>
+                                                <td>Mar 30, 2025</td>
+                                                <td><span class="badge bg-info">Low</span></td>
+                                                <td><span class="badge bg-warning">In Progress</span></td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-outline-secondary view-issue" data-bs-toggle="tooltip" title="View Details">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" title="Edit">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="resolved-row">
+                                                <td>4</td>
+                                                <td>Worker not wearing proper PPE</td>
+                                                <td>Central Core</td>
+                                                <td>Sarah Martinez</td>
+                                                <td>Mar 29, 2025</td>
+                                                <td><span class="badge bg-warning">Medium</span></td>
+                                                <td><span class="badge bg-success">Resolved</span></td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-outline-secondary view-issue" data-bs-toggle="tooltip" title="View Details">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" title="Edit">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="resolved-row">
+                                                <td>5</td>
+                                                <td>Expired fire extinguisher</td>
+                                                <td>East Wing</td>
+                                                <td>AI Detection</td>
+                                                <td>Mar 28, 2025</td>
+                                                <td><span class="badge bg-danger">High</span></td>
+                                                <td><span class="badge bg-success">Resolved</span></td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-outline-secondary view-issue" data-bs-toggle="tooltip" title="View Details">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" title="Edit">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Safety Walk Schedule -->
+                    <div class="col-lg-4">
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-white py-3">
+                                <h5 class="mb-0">Upcoming Safety Walks</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush safety-walks">
+                                    <li class="list-group-item p-3">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6 class="mb-1">Afternoon Safety Walk</h6>
+                                                <p class="text-muted small mb-0">Levels 1 & 2 - Today, 4:00 PM</p>
+                                                <p class="text-muted small mb-0">Assigned to: Dave Wilson</p>
+                                            </div>
+                                            <div class="badge bg-primary align-self-start">Today</div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item p-3">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6 class="mb-1">Morning Safety Walk</h6>
+                                                <p class="text-muted small mb-0">All Levels - Tomorrow, 9:00 AM</p>
+                                                <p class="text-muted small mb-0">Assigned to: John Carpenter</p>
+                                            </div>
+                                            <div class="badge bg-success align-self-start">Tomorrow</div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item p-3">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6 class="mb-1">HVAC System Safety Check</h6>
+                                                <p class="text-muted small mb-0">Roof - Tomorrow, 2:00 PM</p>
+                                                <p class="text-muted small mb-0">Assigned to: Mike Johnson</p>
+                                            </div>
+                                            <div class="badge bg-success align-self-start">Tomorrow</div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item p-3">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6 class="mb-1">Electrical Safety Inspection</h6>
+                                                <p class="text-muted small mb-0">East Wing - Apr 3, 11:00 AM</p>
+                                                <p class="text-muted small mb-0">Assigned to: Sarah Martinez</p>
+                                            </div>
+                                            <div class="badge bg-success align-self-start">Apr 3</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer bg-white border-top-0 text-center py-3">
+                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#scheduleSafetyWalkModal">
+                                    <i class="fas fa-plus me-1"></i> Schedule Safety Walk
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- OSHA Compliance Status -->
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <h5 class="mb-0">Compliance Status</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="compliance-item mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>OSHA Compliance</span>
+                                        <span class="text-success">97%</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 97%;" aria-valuenow="97" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="compliance-item mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>PPE Compliance</span>
+                                        <span class="text-success">98%</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 98%;" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="compliance-item mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Fire Safety</span>
+                                        <span class="text-success">100%</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="compliance-item mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Fall Protection</span>
+                                        <span class="text-warning">87%</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 87%;" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="compliance-item">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Equipment Inspection</span>
+                                        <span class="text-success">95%</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Safety AI Analysis -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">AI Safety Analysis</h5>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary active">This Week</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">This Month</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">This Quarter</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-7">
+                                        <div class="chart-container" style="height: 300px;">
+                                            <canvas id="safetyTrendChart"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <h6 class="mb-3">AI Safety Insights</h6>
+                                        <div class="safety-insight-item mb-3 p-3 border rounded">
+                                            <div class="d-flex align-items-start">
+                                                <div class="insight-icon me-3 text-success">
+                                                    <i class="fas fa-arrow-trend-up"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">Improved PPE Compliance</h6>
+                                                    <p class="mb-0 small">PPE compliance has improved by 5% since last week, particularly in the East Wing where targeted reminders were implemented.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="safety-insight-item mb-3 p-3 border rounded">
+                                            <div class="d-flex align-items-start">
+                                                <div class="insight-icon me-3 text-danger">
+                                                    <i class="fas fa-arrow-trend-down"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">Fall Protection Concerns</h6>
+                                                    <p class="mb-0 small">A 7% decrease in fall protection compliance was detected on the 4th floor. Recommend scheduling additional training and installing temporary guardrails.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="safety-insight-item p-3 border rounded">
+                                            <div class="d-flex align-items-start">
+                                                <div class="insight-icon me-3 text-primary">
+                                                    <i class="fas fa-lightbulb"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">Potential Hazard Pattern</h6>
+                                                    <p class="mb-0 small">The AI has detected a pattern of electrical safety issues in the West Wing. Consider a targeted electrical safety inspection.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schedule Safety Walk Modal -->
+    <div class="modal fade" id="scheduleSafetyWalkModal" tabindex="-1" aria-labelledby="scheduleSafetyWalkModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="scheduleSafetyWalkModalLabel">Schedule Safety Walk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="safetyWalkForm" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label for="walkTitle" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="walkTitle" placeholder="Morning Safety Walk" required>
+                                <div class="invalid-feedback">Please provide a title.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="walkDate" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="walkDate" required>
+                                <div class="invalid-feedback">Please select a date.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="walkTime" class="form-label">Time</label>
+                                <input type="time" class="form-control" id="walkTime" required>
+                                <div class="invalid-feedback">Please select a time.</div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="walkArea" class="form-label">Area</label>
+                                <select class="form-select" id="walkArea" required>
+                                    <option value="" selected disabled>Select area</option>
+                                    <option value="all">All Areas</option>
+                                    <option value="east">East Wing</option>
+                                    <option value="west">West Wing</option>
+                                    <option value="central">Central Core</option>
+                                    <option value="basement">Basement</option>
+                                    <option value="roof">Roof</option>
+                                </select>
+                                <div class="invalid-feedback">Please select an area.</div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="walkAssignee" class="form-label">Assign To</label>
+                                <select class="form-select" id="walkAssignee" required>
+                                    <option value="" selected disabled>Select assignee</option>
+                                    <option value="john">John Carpenter</option>
+                                    <option value="sarah">Sarah Martinez</option>
+                                    <option value="mike">Mike Johnson</option>
+                                    <option value="dave">Dave Wilson</option>
+                                </select>
+                                <div class="invalid-feedback">Please assign this walk to someone.</div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="walkNotes" class="form-label">Notes</label>
+                                <textarea class="form-control" id="walkNotes" rows="3"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="walk360Camera" checked>
+                                    <label class="form-check-label" for="walk360Camera">
+                                        Use 360-degree camera (recommended for AI analysis)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="walkRecurring">
+                                    <label class="form-check-label" for="walkRecurring">
+                                        Recurring Walk
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-3 recurring-options d-none">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label for="recurringType" class="form-label">Repeat</label>
+                                                <select class="form-select" id="recurringType">
+                                                    <option value="daily">Daily</option>
+                                                    <option value="weekly" selected>Weekly</option>
+                                                    <option value="monthly">Monthly</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="recurringEnd" class="form-label">End After</label>
+                                                <input type="number" class="form-control" id="recurringEnd" value="4" min="1" max="52">
+                                                <div class="form-text">occurrences</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" form="safetyWalkForm">Schedule</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Safety Issue Modal -->
+    <div class="modal fade" id="reportSafetyIssueModal" tabindex="-1" aria-labelledby="reportSafetyIssueModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reportSafetyIssueModalLabel">Report Safety Issue</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="safetyIssueForm" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label for="issueTitle" class="form-label">Issue Title</label>
+                                <input type="text" class="form-control" id="issueTitle" placeholder="Briefly describe the safety issue" required>
+                                <div class="invalid-feedback">Please provide a title for the issue.</div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="issueDescription" class="form-label">Detailed Description</label>
+                                <textarea class="form-control" id="issueDescription" rows="3" placeholder="Provide details about the safety issue" required></textarea>
+                                <div class="invalid-feedback">Please provide a detailed description.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="issueArea" class="form-label">Location</label>
+                                <select class="form-select" id="issueArea" required>
+                                    <option value="" selected disabled>Select location</option>
+                                    <option value="east">East Wing</option>
+                                    <option value="west">West Wing</option>
+                                    <option value="central">Central Core</option>
+                                    <option value="basement">Basement</option>
+                                    <option value="roof">Roof</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a location.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="issueFloor" class="form-label">Floor/Level</label>
+                                <select class="form-select" id="issueFloor" required>
+                                    <option value="" selected disabled>Select floor</option>
+                                    <option value="basement">Basement</option>
+                                    <option value="1">Level 1</option>
+                                    <option value="2">Level 2</option>
+                                    <option value="3">Level 3</option>
+                                    <option value="4">Level 4</option>
+                                    <option value="roof">Roof</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a floor.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="issuePriority" class="form-label">Priority</label>
+                                <select class="form-select" id="issuePriority" required>
+                                    <option value="" selected disabled>Select priority</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                    <option value="critical">Critical</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a priority level.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="issueCategory" class="form-label">Category</label>
+                                <select class="form-select" id="issueCategory" required>
+                                    <option value="" selected disabled>Select category</option>
+                                    <option value="ppe">PPE Violation</option>
+                                    <option value="fall">Fall Protection</option>
+                                    <option value="electrical">Electrical Hazard</option>
+                                    <option value="fire">Fire Safety</option>
+                                    <option value="chemical">Chemical/Material Hazard</option>
+                                    <option value="equipment">Equipment Safety</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a category.</div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="issueAssignee" class="form-label">Assign To</label>
+                                <select class="form-select" id="issueAssignee">
+                                    <option value="" selected>Unassigned</option>
+                                    <option value="john">John Carpenter</option>
+                                    <option value="sarah">Sarah Martinez</option>
+                                    <option value="mike">Mike Johnson</option>
+                                    <option value="dave">Dave Wilson</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Photos/Evidence</label>
+                                <div class="upload-area mb-3">
+                                    <div class="text-center p-4 border-2 border-dashed rounded">
+                                        <i class="fas fa-cloud-upload-alt fa-2x text-muted mb-2"></i>
+                                        <h6>Drag and drop files here</h6>
+                                        <p class="text-muted small">or</p>
+                                        <button type="button" class="btn btn-sm btn-primary" id="browseFiles">Browse Files</button>
+                                        <input type="file" id="fileInput" class="d-none" multiple accept="image/*">
+                                    </div>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="aiAnalyzeCheck" checked>
+                                    <label class="form-check-label" for="aiAnalyzeCheck">
+                                        Use AI to analyze photos for additional safety issues
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" form="safetyIssueForm">Submit Issue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Issue Details Modal -->
+    <div class="modal fade" id="issueDetailsModal" tabindex="-1" aria-labelledby="issueDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="issueDetailsModalLabel">Issue Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="issue-details-container">
+                        <!-- Issue details will be loaded here dynamically -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="resolveIssueBtn">
+                        <i class="fas fa-check me-1"></i> Mark as Resolved
+                    </button>
+                    <button type="button" class="btn btn-primary" id="editIssueBtn">
+                        <i class="fas fa-edit me-1"></i> Edit Issue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+    <script src="../js/safety.js"></script>
+</body>
+</html></span></td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-outline-secondary view-issue" data-bs-toggle="tooltip" title="View Details">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" title="Edit">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Electrical cables exposed in work area</td>
+                                                <td>West Wing</td>
+                                                <td>John Carpenter</td>
+                                                <td>Mar 31, 2025</td>
+                                                <td><span class="badge bg-warning">Medium</span></td>
+                                                <td><span class="badge bg-warning">In Progress
