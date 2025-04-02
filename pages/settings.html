@@ -1,0 +1,1351 @@
+</div>
+</div>
+</div>
+
+<h5 class="mt-4">Schedule Settings</h5>
+<div class="mb-3">
+<label for="defaultCalendarView" class="form-label">Default Calendar View</label>
+<select class="form-select" id="defaultCalendarView">
+    <option value="day">Day</option>
+    <option value="week" selected>Week</option>
+    <option value="month">Month</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="workDays" class="form-label">Work Days</label>
+<div class="d-flex gap-2 work-days">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="workDaySun">
+        <label class="form-check-label" for="workDaySun">Sun</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="workDayMon" checked>
+        <label class="form-check-label" for="workDayMon">Mon</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="workDayTue" checked>
+        <label class="form-check-label" for="workDayTue">Tue</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="workDayWed" checked>
+        <label class="form-check-label" for="workDayWed">Wed</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="workDayThu" checked>
+        <label class="form-check-label" for="workDayThu">Thu</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="workDayFri" checked>
+        <label class="form-check-label" for="workDayFri">Fri</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="workDaySat">
+        <label class="form-check-label" for="workDaySat">Sat</label>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+    <label for="workDayStart" class="form-label">Work Day Start</label>
+    <input type="time" class="form-control" id="workDayStart" value="07:00">
+</div>
+<div class="col-md-6 mb-3">
+    <label for="workDayEnd" class="form-label">Work Day End</label>
+    <input type="time" class="form-control" id="workDayEnd" value="17:00">
+</div>
+</div>
+
+<div class="d-flex justify-content-end mt-4">
+<button type="button" class="btn btn-outline-secondary me-2">Reset to Default</button>
+<button type="submit" class="btn btn-primary">Save Changes</button>
+</div>
+</form>
+</div>
+
+<!-- AI Settings Tab -->
+<div class="tab-pane fade" id="ai" role="tabpanel" aria-labelledby="ai-tab">
+<h4>AI Settings</h4>
+<hr>
+<form id="ai-settings-form">
+<h5>AI Assistant</h5>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="aiEnabled" checked>
+<label class="form-check-label" for="aiEnabled">Enable AI Assistant</label>
+</div>
+<div class="mb-3">
+<label for="aiModel" class="form-label">AI Model</label>
+<select class="form-select" id="aiModel">
+    <option value="standard" selected>Standard</option>
+    <option value="pro">Professional (Recommended)</option>
+    <option value="expert">Expert</option>
+</select>
+<div class="form-text">The Professional model offers improved accuracy and more detailed insights.</div>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="aiProactiveInsights" checked>
+<label class="form-check-label" for="aiProactiveInsights">Enable proactive insights and recommendations</label>
+</div>
+
+<h5 class="mt-4">Image Analysis</h5>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="imageAnalysisEnabled" checked>
+<label class="form-check-label" for="imageAnalysisEnabled">Enable automatic image analysis</label>
+</div>
+<div class="mb-3">
+<label for="imageProcessingQuality" class="form-label">Image Processing Quality</label>
+<select class="form-select" id="imageProcessingQuality">
+    <option value="low">Low (Faster)</option>
+    <option value="medium" selected>Medium</option>
+    <option value="high">High (More Accurate)</option>
+</select>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="scheduleUpdates" checked>
+<label class="form-check-label" for="scheduleUpdates">Update schedule based on progress detection</label>
+</div>
+
+<h5 class="mt-4">Safety Detection</h5>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="safetyDetectionEnabled" checked>
+<label class="form-check-label" for="safetyDetectionEnabled">Enable automatic safety violation detection</label>
+</div>
+<div class="mb-3">
+<label for="safetyAlertThreshold" class="form-label">Safety Alert Threshold</label>
+<select class="form-select" id="safetyAlertThreshold">
+    <option value="low">Low (More Alerts)</option>
+    <option value="medium" selected>Medium</option>
+    <option value="high">High (Fewer Alerts)</option>
+</select>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="ppeDetection" checked>
+<label class="form-check-label" for="ppeDetection">PPE compliance detection</label>
+</div>
+
+<h5 class="mt-4">Data Usage</h5>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="aiImprovement" checked>
+<label class="form-check-label" for="aiImprovement">Allow data usage for AI improvement</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="anonymousAnalytics" checked>
+<label class="form-check-label" for="anonymousAnalytics">Share anonymous analytics data</label>
+</div>
+<div class="form-text mb-3">
+Your data is always kept secure and private. These settings control how we can use anonymized data to improve the AI system and provide industry benchmarks.
+</div>
+
+<div class="d-flex justify-content-end mt-4">
+<button type="button" class="btn btn-outline-secondary me-2">Reset to Default</button>
+<button type="submit" class="btn btn-primary">Save Changes</button>
+</div>
+</form>
+</div>
+
+<!-- Team Management Tab -->
+<div class="tab-pane fade" id="team" role="tabpanel" aria-labelledby="team-tab">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<h4>Team Management</h4>
+<button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#inviteTeamMemberModal">
+<i class="fas fa-plus me-1"></i> Invite Team Member
+</button>
+</div>
+<hr>
+
+<ul class="nav nav-tabs mb-3" id="teamTabs" role="tablist">
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="members-tab" data-bs-toggle="tab" data-bs-target="#members" type="button" role="tab" aria-controls="members" aria-selected="true">Members</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="roles-tab" data-bs-toggle="tab" data-bs-target="#roles" type="button" role="tab" aria-controls="roles" aria-selected="false">Roles & Permissions</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="groups-tab" data-bs-toggle="tab" data-bs-target="#groups" type="button" role="tab" aria-controls="groups" aria-selected="false">Groups</button>
+</li>
+</ul>
+
+<div class="tab-content" id="teamTabsContent">
+<!-- Team Members Tab -->
+<div class="tab-pane fade show active" id="members" role="tabpanel" aria-labelledby="members-tab">
+<div class="mb-3">
+    <input type="text" class="form-control" placeholder="Search team members...">
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <img src="../assets/images/user-avatar.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                        <div>
+                            <div>John Carpenter</div>
+                            <div class="small text-muted">Project Manager</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Administrator</td>
+                <td>john.carpenter@example.com</td>
+                <td><span class="badge bg-success">Active</span></td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-primary">
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="group-item">
+        <div class="group-header collapsed" data-bs-toggle="collapse" data-bs-target="#fieldGroup" aria-expanded="false">
+            <div class="group-title">Field Workers</div>
+            <div class="group-actions">
+                <span class="badge bg-primary">2 Users</span>
+                <button class="btn btn-sm btn-link"><i class="fas fa-edit"></i></button>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+        <div class="collapse" id="fieldGroup">
+            <div class="group-body">
+                <p class="group-description">On-site construction workers and foremen</p>
+                <!-- Group members would be listed here -->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Integrations Tab -->
+<div class="tab-pane fade" id="integration" role="tabpanel" aria-labelledby="integration-tab">
+<h4>Integrations</h4>
+<hr>
+
+<div class="row mb-4">
+<div class="col-md-4 mb-3">
+<div class="integration-card">
+    <div class="integration-logo">
+        <img src="../assets/images/integration-project.png" alt="Project Management">
+    </div>
+    <div class="integration-details">
+        <h5>Project Management</h5>
+        <p>Connect with popular project management tools</p>
+        <div class="integration-actions">
+            <button class="btn btn-primary btn-sm">Connect</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-md-4 mb-3">
+<div class="integration-card">
+    <div class="integration-logo">
+        <img src="../assets/images/integration-calendar.png" alt="Calendar">
+    </div>
+    <div class="integration-details">
+        <h5>Calendar</h5>
+        <p>Sync with your favorite calendar applications</p>
+        <div class="integration-actions">
+            <span class="text-success"><i class="fas fa-check-circle"></i> Connected</span>
+            <button class="btn btn-link btn-sm text-danger">Disconnect</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-md-4 mb-3">
+<div class="integration-card">
+    <div class="integration-logo">
+        <img src="../assets/images/integration-storage.png" alt="Cloud Storage">
+    </div>
+    <div class="integration-details">
+        <h5>Cloud Storage</h5>
+        <p>Connect with cloud storage providers</p>
+        <div class="integration-actions">
+            <button class="btn btn-primary btn-sm">Connect</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-md-4 mb-3">
+<div class="integration-card">
+    <div class="integration-logo">
+        <img src="../assets/images/integration-communication.png" alt="Communication">
+    </div>
+    <div class="integration-details">
+        <h5>Communication</h5>
+        <p>Integrate with messaging and communication tools</p>
+        <div class="integration-actions">
+            <span class="text-success"><i class="fas fa-check-circle"></i> Connected</span>
+            <button class="btn btn-link btn-sm text-danger">Disconnect</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-md-4 mb-3">
+<div class="integration-card">
+    <div class="integration-logo">
+        <img src="../assets/images/integration-accounting.png" alt="Accounting">
+    </div>
+    <div class="integration-details">
+        <h5>Accounting</h5>
+        <p>Connect with accounting and financial systems</p>
+        <div class="integration-actions">
+            <button class="btn btn-primary btn-sm">Connect</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-md-4 mb-3">
+<div class="integration-card">
+    <div class="integration-logo">
+        <img src="../assets/images/integration-api.png" alt="API Access">
+    </div>
+    <div class="integration-details">
+        <h5>API Access</h5>
+        <p>Developer access to SiteFlow API</p>
+        <div class="integration-actions">
+            <button class="btn btn-primary btn-sm">Configure</button>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<h5>Custom Integrations</h5>
+<p>Need a custom integration? Contact our development team for assistance.</p>
+<button class="btn btn-outline-primary">Contact Support</button>
+</div>
+
+<!-- Billing & Subscription Tab -->
+<div class="tab-pane fade" id="billing" role="tabpanel" aria-labelledby="billing-tab">
+<h4>Billing & Subscription</h4>
+<hr>
+
+<div class="row mb-4">
+<div class="col-md-6">
+<div class="card border-0 shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">Current Plan</h5>
+        <div class="current-plan">
+            <div class="plan-name">Professional Plan</div>
+            <div class="plan-price">$199<span class="plan-period">/month</span></div>
+            <div class="plan-users">Up to 15 users</div>
+            <div class="plan-renewal">
+                <i class="fas fa-clock me-1"></i> Renews on May 1, 2025
+            </div>
+            <div class="plan-actions mt-3">
+                <button class="btn btn-primary">Upgrade Plan</button>
+                <button class="btn btn-link text-danger">Cancel Subscription</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card border-0 shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">Payment Method</h5>
+        <div class="payment-method">
+            <div class="payment-card d-flex align-items-center">
+                <div class="card-icon me-3">
+                    <i class="fab fa-cc-visa"></i>
+                </div>
+                <div class="card-details">
+                    <div class="card-name">Visa ending in 4242</div>
+                    <div class="card-expiry">Expires 05/2026</div>
+                </div>
+                <div class="ms-auto">
+                    <button class="btn btn-sm btn-outline-secondary">Change</button>
+                </div>
+            </div>
+        </div>
+        <h5 class="card-title mt-4">Billing Address</h5>
+        <div class="billing-address">
+            <div>Acme Construction Inc.</div>
+            <div>123 Main Street</div>
+            <div>Suite 400</div>
+            <div>New York, NY 10001</div>
+            <div>United States</div>
+        </div>
+        <button class="btn btn-sm btn-outline-secondary mt-2">Update Address</button>
+    </div>
+</div>
+</div>
+</div>
+
+<h5>Billing History</h5>
+<div class="table-responsive">
+<table class="table table-hover">
+<thead>
+    <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Invoice</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Apr 1, 2025</td>
+        <td>Professional Plan - Monthly Subscription</td>
+        <td>$199.00</td>
+        <td><span class="badge bg-success">Paid</span></td>
+        <td><a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-download me-1"></i> PDF</a></td>
+    </tr>
+    <tr>
+        <td>Mar 1, 2025</td>
+        <td>Professional Plan - Monthly Subscription</td>
+        <td>$199.00</td>
+        <td><span class="badge bg-success">Paid</span></td>
+        <td><a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-download me-1"></i> PDF</a></td>
+    </tr>
+    <tr>
+        <td>Feb 1, 2025</td>
+        <td>Professional Plan - Monthly Subscription</td>
+        <td>$199.00</td>
+        <td><span class="badge bg-success">Paid</span></td>
+        <td><a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-download me-1"></i> PDF</a></td>
+    </tr>
+    <tr>
+        <td>Jan 1, 2025</td>
+        <td>Professional Plan - Monthly Subscription</td>
+        <td>$199.00</td>
+        <td><span class="badge bg-success">Paid</span></td>
+        <td><a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-download me-1"></i> PDF</a></td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Invite Team Member Modal -->
+<div class="modal fade" id="inviteTeamMemberModal" tabindex="-1" aria-labelledby="inviteTeamMemberModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="inviteTeamMemberModalLabel">Invite Team Member</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+<form id="inviteTeamMemberForm">
+<div class="mb-3">
+<label for="inviteEmail" class="form-label">Email Address</label>
+<input type="email" class="form-control" id="inviteEmail" placeholder="colleague@example.com" required>
+</div>
+<div class="mb-3">
+<label for="inviteRole" class="form-label">Role</label>
+<select class="form-select" id="inviteRole" required>
+<option value="" selected disabled>Select a role</option>
+<option value="admin">Administrator</option>
+<option value="safety">Safety Manager</option>
+<option value="field">Field User</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="inviteGroup" class="form-label">Group (Optional)</label>
+<select class="form-select" id="inviteGroup">
+<option value="" selected>No group</option>
+<option value="management">Management</option>
+<option value="field">Field Workers</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="inviteMessage" class="form-label">Personal Message (Optional)</label>
+<textarea class="form-control" id="inviteMessage" rows="3" placeholder="Add a personal message to the invitation email..."></textarea>
+</div>
+</form>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+<button type="submit" class="btn btn-primary" form="inviteTeamMemberForm">Send Invitation</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Upload Photo Modal -->
+<div class="modal fade" id="uploadPhotoModal" tabindex="-1" aria-labelledby="uploadPhotoModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="uploadPhotoModalLabel">Upload Photo</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+<div class="upload-area mb-4">
+<div class="text-center p-5 border-2 border-dashed rounded">
+<i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
+<h5>Drag and drop files here</h5>
+<p class="text-muted">or</p>
+<button type="button" class="btn btn-primary" id="browseFiles">Browse Files</button>
+<input type="file" id="fileInput" class="d-none" multiple accept="image/*">
+</div>
+</div>
+<div class="form-group mb-3">
+<label for="photoLocation" class="form-label">Location</label>
+<select class="form-select" id="photoLocation">
+<option selected>Select location</option>
+<option>East Wing - 4th Floor</option>
+<option>West Wing - 3rd Floor</option>
+<option>Central Core - All Floors</option>
+<option>Basement</option>
+<option>Roof</option>
+</select>
+</div>
+<div class="form-group mb-3">
+<label for="photoDescription" class="form-label">Description</label>
+<textarea class="form-control" id="photoDescription" rows="3" placeholder="Describe what's in the photo..."></textarea>
+</div>
+<div class="form-check mb-3">
+<input class="form-check-input" type="checkbox" value="" id="updateScheduleCheck" checked>
+<label class="form-check-label" for="updateScheduleCheck">
+Allow AI to update schedule based on this photo
+</label>
+</div>
+<div class="form-check mb-3">
+<input class="form-check-input" type="checkbox" value="" id="safetyCheckCheck">
+<label class="form-check-label" for="safetyCheckCheck">
+Perform safety check on this photo
+</label>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+<button type="button" class="btn btn-primary" id="uploadButton">Upload</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Custom JS -->
+<script src="../js/main.js"></script>
+<script src="../js/settings.js"></script>
+</body>
+</html>="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Actions
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Edit</a></li>
+                            <li><a class="dropdown-item" href="#">Change Role</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#">Remove</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <img src="../assets/images/user-avatar-2.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                        <div>
+                            <div>Sarah Martinez</div>
+                            <div class="small text-muted">Safety Coordinator</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Safety Manager</td>
+                <td>sarah.martinez@example.com</td>
+                <td><span class="badge bg-success">Active</span></td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Actions
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                            <li><a class="dropdown-item" href="#">Edit</a></li>
+                            <li><a class="dropdown-item" href="#">Change Role</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#">Remove</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <img src="../assets/images/user-avatar-3.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                        <div>
+                            <div>Mike Johnson</div>
+                            <div class="small text-muted">Foreman</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Field User</td>
+                <td>mike.johnson@example.com</td>
+                <td><span class="badge bg-success">Active</span></td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                            Actions
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                            <li><a class="dropdown-item" href="#">Edit</a></li>
+                            <li><a class="dropdown-item" href="#">Change Role</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#">Remove</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <img src="../assets/images/user-avatar-4.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                        <div>
+                            <div>Dave Wilson</div>
+                            <div class="small text-muted">Foreman</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Field User</td>
+                <td>dave.wilson@example.com</td>
+                <td><span class="badge bg-warning">Away</span></td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton4" data-bs-toggle="dropdown" aria-expanded="false">
+                            Actions
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                            <li><a class="dropdown-item" href="#">Edit</a></li>
+                            <li><a class="dropdown-item" href="#">Change Role</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#">Remove</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-light d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div>Pending Invitation</div>
+                            <div class="small text-muted">Sent 2 days ago</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Field User</td>
+                <td>robert.smith@example.com</td>
+                <td><span class="badge bg-secondary">Pending</span></td>
+                <td>
+                    <button class="btn btn-sm btn-outline-secondary">Resend</button>
+                    <button class="btn btn-sm btn-outline-danger">Cancel</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<!-- Roles & Permissions Tab -->
+<div class="tab-pane fade" id="roles" role="tabpanel" aria-labelledby="roles-tab">
+<div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-primary btn-sm">
+        <i class="fas fa-plus me-1"></i> Create New Role
+    </button>
+</div>
+
+<div class="roles-list">
+    <div class="role-item">
+        <div class="role-header" data-bs-toggle="collapse" data-bs-target="#adminRole" aria-expanded="true">
+            <div class="role-title">Administrator</div>
+            <div class="role-actions">
+                <span class="badge bg-primary">1 User</span>
+                <button class="btn btn-sm btn-link"><i class="fas fa-edit"></i></button>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+        <div class="collapse show" id="adminRole">
+            <div class="role-body">
+                <p class="role-description">Full access to all features and settings of the SiteFlow platform.</p>
+                
+                <div class="row permissions-grid">
+                    <div class="col-md-3 mb-3">
+                        <div class="permission-group">
+                            <div class="permission-group-header">Projects</div>
+                            <div class="permission-list">
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Create Projects
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Edit Projects
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Delete Projects
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> View All Projects
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="permission-group">
+                            <div class="permission-group-header">Users</div>
+                            <div class="permission-list">
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Invite Users
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Manage Users
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Remove Users
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Assign Roles
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="permission-group">
+                            <div class="permission-group-header">Settings</div>
+                            <div class="permission-list">
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Company Settings
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Billing & Subscription
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> AI Configuration
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Integrations
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="permission-group">
+                            <div class="permission-group-header">Reports</div>
+                            <div class="permission-list">
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Create Reports
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Export Data
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> View All Reports
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check text-success"></i> Dashboard Analytics
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="role-item">
+        <div class="role-header collapsed" data-bs-toggle="collapse" data-bs-target="#safetyManagerRole" aria-expanded="false">
+            <div class="role-title">Safety Manager</div>
+            <div class="role-actions">
+                <span class="badge bg-primary">1 User</span>
+                <button class="btn btn-sm btn-link"><i class="fas fa-edit"></i></button>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+        <div class="collapse" id="safetyManagerRole">
+            <div class="role-body">
+                <p class="role-description">Access to safety features and safety-related reports.</p>
+                
+                <!-- Permission details would be here -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="role-item">
+        <div class="role-header collapsed" data-bs-toggle="collapse" data-bs-target="#fieldUserRole" aria-expanded="false">
+            <div class="role-title">Field User</div>
+            <div class="role-actions">
+                <span class="badge bg-primary">2 Users</span>
+                <button class="btn btn-sm btn-link"><i class="fas fa-edit"></i></button>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+        <div class="collapse" id="fieldUserRole">
+            <div class="role-body">
+                <p class="role-description">Limited access for field workers to upload photos and view assigned tasks.</p>
+                
+                <!-- Permission details would be here -->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Groups Tab -->
+<div class="tab-pane fade" id="groups" role="tabpanel" aria-labelledby="groups-tab">
+<div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-primary btn-sm">
+        <i class="fas fa-plus me-1"></i> Create New Group
+    </button>
+</div>
+
+<div class="groups-list">
+    <div class="group-item">
+        <div class="group-header" data-bs-toggle="collapse" data-bs-target="#managementGroup" aria-expanded="true">
+            <div class="group-title">Management</div>
+            <div class="group-actions">
+                <span class="badge bg-primary">2 Users</span>
+                <button class="btn btn-sm btn-link"><i class="fas fa-edit"></i></button>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+        <div class="collapse show" id="managementGroup">
+            <div class="group-body">
+                <p class="group-description">Project management and supervisory staff</p>
+                
+                <div class="group-members">
+                    <div class="group-member">
+                        <img src="../assets/images/user-avatar.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                        <div>John Carpenter</div>
+                        <div class="member-role">Project Manager</div>
+                        <button class="btn btn-sm btn-link text-danger">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="group-member">
+                        <img src="../assets/images/user-avatar-2.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                        <div>Sarah Martinez</div>
+                        <div class="member-role">Safety Coordinator</div>
+                        <button class="btn btn-sm btn-link text-danger">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="add-member-form">
+                    <div class="input-group">
+                        <select class="form-select form-select-sm">
+                            <option selected>Add member...</option>
+                            <option value="mike">Mike Johnson</option>
+                            <option value="dave">Dave Wilson</option>
+                        </select>
+                        <button class<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SiteFlow - Settings</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/settings.css">
+</head>
+<body>
+<!-- Sidebar and Navbar Layout -->
+<div class="d-flex" id="wrapper">
+<!-- Sidebar -->
+<div class="bg-dark text-white border-end" id="sidebar-wrapper">
+<div class="sidebar-heading p-3">
+<img src="../assets/images/logo.svg" alt="SiteFlow Logo" width="30" height="30" class="d-inline-block align-text-top me-2">
+<span class="fs-4 fw-bold">SiteFlow</span>
+</div>
+<div class="list-group list-group-flush nav-pills">
+<a href="dashboard.html" class="list-group-item list-group-item-action text-white py-3">
+<i class="fas fa-tachometer-alt me-2"></i> Dashboard
+</a>
+<a href="schedule.html" class="list-group-item list-group-item-action text-white py-3">
+<i class="fas fa-calendar-alt me-2"></i> Schedule
+</a>
+<a href="progress-tracking.html" class="list-group-item list-group-item-action text-white py-3">
+<i class="fas fa-tasks me-2"></i> Progress Tracking
+</a>
+<a href="safety.html" class="list-group-item list-group-item-action text-white py-3">
+<i class="fas fa-hard-hat me-2"></i> Safety
+</a>
+<a href="chat.html" class="list-group-item list-group-item-action text-white py-3">
+<i class="fas fa-robot me-2"></i> AI Assistant
+</a>
+<a href="settings.html" class="list-group-item list-group-item-action text-white active py-3">
+<i class="fas fa-cog me-2"></i> Settings
+</a>
+</div>
+<div class="mt-auto p-3">
+<a href="../index.html" class="btn btn-outline-light w-100">
+<i class="fas fa-sign-out-alt me-2"></i> Logout
+</a>
+</div>
+</div>
+
+<!-- Page Content -->
+<div id="page-content-wrapper" class="bg-light flex-grow-1">
+<!-- Top Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+<div class="container-fluid">
+<button class="btn btn-sm" id="sidebarToggle">
+<i class="fas fa-bars"></i>
+</button>
+<div class="d-flex align-items-center">
+<div class="dropdown">
+<a class="dropdown-toggle text-decoration-none" href="#" id="projectDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<i class="fas fa-building me-1"></i> Downtown Office Tower
+</a>
+<ul class="dropdown-menu" aria-labelledby="projectDropdown">
+<li><a class="dropdown-item" href="#">Downtown Office Tower</a></li>
+<li><a class="dropdown-item" href="#">Riverside Apartments</a></li>
+<li><a class="dropdown-item" href="#">Central Hospital Renovation</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item" href="#">Add New Project</a></li>
+</ul>
+</div>
+</div>
+<div class="d-flex">
+<button class="btn btn-sm btn-outline-primary me-2" type="button" data-bs-toggle="modal" data-bs-target="#uploadPhotoModal">
+<i class="fas fa-camera me-1"></i> Upload Photo
+</button>
+<div class="dropdown">
+<a class="dropdown-toggle text-decoration-none d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<img src="../assets/images/user-avatar.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+<span class="d-none d-sm-inline">John Carpenter</span>
+</a>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+<li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profile</a></li>
+<li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Settings</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item" href="../index.html"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<!-- Page Content -->
+<div class="container-fluid p-4">
+<!-- Settings Header -->
+<div class="row mb-4">
+<div class="col-md-12">
+<h2 class="mb-1">Settings</h2>
+<p class="text-muted">Configure your SiteFlow experience</p>
+</div>
+</div>
+
+<!-- Settings Tabs -->
+<div class="row">
+<div class="col-md-3">
+<div class="card border-0 shadow-sm settings-nav">
+<div class="card-body p-0">
+<div class="list-group list-group-flush" id="settings-tabs" role="tablist">
+<a class="list-group-item list-group-item-action active" id="account-tab" data-bs-toggle="list" href="#account" role="tab" aria-controls="account">
+<i class="fas fa-user-circle me-2"></i> Account Settings
+</a>
+<a class="list-group-item list-group-item-action" id="notification-tab" data-bs-toggle="list" href="#notification" role="tab" aria-controls="notification">
+<i class="fas fa-bell me-2"></i> Notifications
+</a>
+<a class="list-group-item list-group-item-action" id="privacy-tab" data-bs-toggle="list" href="#privacy" role="tab" aria-controls="privacy">
+<i class="fas fa-shield-alt me-2"></i> Privacy & Security
+</a>
+<a class="list-group-item list-group-item-action" id="preferences-tab" data-bs-toggle="list" href="#preferences" role="tab" aria-controls="preferences">
+<i class="fas fa-sliders-h me-2"></i> Preferences
+</a>
+<a class="list-group-item list-group-item-action" id="ai-tab" data-bs-toggle="list" href="#ai" role="tab" aria-controls="ai">
+<i class="fas fa-robot me-2"></i> AI Settings
+</a>
+<a class="list-group-item list-group-item-action" id="team-tab" data-bs-toggle="list" href="#team" role="tab" aria-controls="team">
+<i class="fas fa-users me-2"></i> Team Management
+</a>
+<a class="list-group-item list-group-item-action" id="integration-tab" data-bs-toggle="list" href="#integration" role="tab" aria-controls="integration">
+<i class="fas fa-plug me-2"></i> Integrations
+</a>
+<a class="list-group-item list-group-item-action" id="billing-tab" data-bs-toggle="list" href="#billing" role="tab" aria-controls="billing">
+<i class="fas fa-credit-card me-2"></i> Billing & Subscription
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-9">
+<div class="card border-0 shadow-sm">
+<div class="card-body">
+<div class="tab-content" id="settings-tabContent">
+<!-- Account Settings Tab -->
+<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+<h4>Account Settings</h4>
+<hr>
+<form id="account-settings-form">
+<div class="row mb-4">
+<div class="col-md-3">
+    <div class="profile-picture-container">
+        <img src="../assets/images/user-avatar.jpg" alt="Profile Picture" class="img-fluid rounded-circle profile-picture">
+        <div class="profile-picture-overlay">
+            <button type="button" class="btn btn-sm btn-primary">
+                <i class="fas fa-camera"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="col-md-9">
+    <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" value="John Carpenter">
+    </div>
+    <div class="mb-3">
+        <label for="jobTitle" class="form-label">Job Title</label>
+        <input type="text" class="form-control" id="jobTitle" value="Project Manager">
+    </div>
+</div>
+</div>
+
+<div class="mb-3">
+<label for="email" class="form-label">Email Address</label>
+<input type="email" class="form-control" id="email" value="john.carpenter@example.com">
+</div>
+<div class="mb-3">
+<label for="phone" class="form-label">Phone Number</label>
+<input type="tel" class="form-control" id="phone" value="(555) 123-4567">
+</div>
+<div class="mb-3">
+<label for="timezone" class="form-label">Timezone</label>
+<select class="form-select" id="timezone">
+    <option value="America/New_York" selected>Eastern Time (US & Canada)</option>
+    <option value="America/Chicago">Central Time (US & Canada)</option>
+    <option value="America/Denver">Mountain Time (US & Canada)</option>
+    <option value="America/Los_Angeles">Pacific Time (US & Canada)</option>
+    <option value="America/Anchorage">Alaska</option>
+    <option value="Pacific/Honolulu">Hawaii</option>
+</select>
+</div>
+
+<h5 class="mt-4">Change Password</h5>
+<hr>
+<div class="mb-3">
+<label for="currentPassword" class="form-label">Current Password</label>
+<input type="password" class="form-control" id="currentPassword">
+</div>
+<div class="mb-3">
+<label for="newPassword" class="form-label">New Password</label>
+<input type="password" class="form-control" id="newPassword">
+</div>
+<div class="mb-3">
+<label for="confirmPassword" class="form-label">Confirm New Password</label>
+<input type="password" class="form-control" id="confirmPassword">
+</div>
+
+<div class="d-flex justify-content-end mt-4">
+<button type="button" class="btn btn-outline-secondary me-2">Cancel</button>
+<button type="submit" class="btn btn-primary">Save Changes</button>
+</div>
+</form>
+</div>
+
+<!-- Notifications Tab -->
+<div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+<h4>Notification Settings</h4>
+<hr>
+<form id="notification-settings-form">
+<h5>Email Notifications</h5>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="taskAssignmentEmail" checked>
+<label class="form-check-label" for="taskAssignmentEmail">Task assignments and updates</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="safetyAlertEmail" checked>
+<label class="form-check-label" for="safetyAlertEmail">Safety alerts and violations</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="progressUpdateEmail" checked>
+<label class="form-check-label" for="progressUpdateEmail">Progress updates and milestones</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="teamMessageEmail">
+<label class="form-check-label" for="teamMessageEmail">Team messages and mentions</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="weeklyDigestEmail" checked>
+<label class="form-check-label" for="weeklyDigestEmail">Weekly project digest</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="marketingEmail">
+<label class="form-check-label" for="marketingEmail">Marketing and feature updates</label>
+</div>
+
+<h5 class="mt-4">In-App Notifications</h5>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="taskAssignmentApp" checked>
+<label class="form-check-label" for="taskAssignmentApp">Task assignments and updates</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="safetyAlertApp" checked>
+<label class="form-check-label" for="safetyAlertApp">Safety alerts and violations</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="progressUpdateApp" checked>
+<label class="form-check-label" for="progressUpdateApp">Progress updates and milestones</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="teamMessageApp" checked>
+<label class="form-check-label" for="teamMessageApp">Team messages and mentions</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="aiInsightsApp" checked>
+<label class="form-check-label" for="aiInsightsApp">AI insights and recommendations</label>
+</div>
+
+<h5 class="mt-4">Mobile Push Notifications</h5>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="taskAssignmentPush" checked>
+<label class="form-check-label" for="taskAssignmentPush">Task assignments and updates</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="safetyAlertPush" checked>
+<label class="form-check-label" for="safetyAlertPush">Safety alerts and violations</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="progressUpdatePush">
+<label class="form-check-label" for="progressUpdatePush">Progress updates and milestones</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="teamMessagePush" checked>
+<label class="form-check-label" for="teamMessagePush">Team messages and mentions</label>
+</div>
+
+<div class="d-flex justify-content-end mt-4">
+<button type="button" class="btn btn-outline-secondary me-2">Reset to Default</button>
+<button type="submit" class="btn btn-primary">Save Changes</button>
+</div>
+</form>
+</div>
+
+<!-- Privacy & Security Tab -->
+<div class="tab-pane fade" id="privacy" role="tabpanel" aria-labelledby="privacy-tab">
+<h4>Privacy & Security</h4>
+<hr>
+<form id="privacy-settings-form">
+<h5>Security Settings</h5>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="twoFactorAuth">
+<label class="form-check-label" for="twoFactorAuth">Enable Two-Factor Authentication</label>
+</div>
+<div class="col-md-8 mb-3 two-factor-setup d-none">
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">Two-Factor Authentication Setup</h6>
+        <p>Scan this QR code with your authenticator app:</p>
+        <div class="text-center mb-3">
+            <img src="../assets/images/qr-code-placeholder.png" alt="QR Code" class="img-fluid" style="max-width: 200px;">
+        </div>
+        <div class="mb-3">
+            <label for="authCode" class="form-label">Verification Code</label>
+            <input type="text" class="form-control" id="authCode" placeholder="Enter 6-digit code">
+        </div>
+        <button type="button" class="btn btn-primary btn-sm">Verify & Enable</button>
+    </div>
+</div>
+</div>
+
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="sessionTimeout" checked>
+<label class="form-check-label" for="sessionTimeout">Automatic session timeout after inactivity</label>
+</div>
+<div class="col-md-4 mb-3">
+<label for="timeoutDuration" class="form-label">Timeout Duration</label>
+<select class="form-select" id="timeoutDuration">
+    <option value="15">15 minutes</option>
+    <option value="30" selected>30 minutes</option>
+    <option value="60">1 hour</option>
+    <option value="120">2 hours</option>
+</select>
+</div>
+
+<h5 class="mt-4">Privacy Settings</h5>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="dataSharing" checked>
+<label class="form-check-label" for="dataSharing">Allow data sharing with team members</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="profileVisibility" checked>
+<label class="form-check-label" for="profileVisibility">Make my profile visible to team members</label>
+</div>
+<div class="mb-3 form-check form-switch">
+<input class="form-check-input" type="checkbox" id="activityTracking" checked>
+<label class="form-check-label" for="activityTracking">Allow activity tracking for analytics</label>
+</div>
+
+<h5 class="mt-4">Login Sessions</h5>
+<div class="table-responsive">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Device</th>
+            <th>Location</th>
+            <th>Last Activity</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><i class="fas fa-laptop me-2"></i> Windows PC - Chrome</td>
+            <td>New York, USA</td>
+            <td>Just now</td>
+            <td><span class="badge bg-success">Current</span></td>
+        </tr>
+        <tr>
+            <td><i class="fas fa-mobile-alt me-2"></i> iPhone - Safari</td>
+            <td>New York, USA</td>
+            <td>2 hours ago</td>
+            <td><button class="btn btn-sm btn-outline-danger">Log Out</button></td>
+        </tr>
+        <tr>
+            <td><i class="fas fa-tablet-alt me-2"></i> iPad - Safari</td>
+            <td>New York, USA</td>
+            <td>Yesterday</td>
+            <td><button class="btn btn-sm btn-outline-danger">Log Out</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<button type="button" class="btn btn-outline-danger btn-sm">Log Out All Other Devices</button>
+
+<div class="d-flex justify-content-end mt-4">
+<button type="button" class="btn btn-outline-secondary me-2">Cancel</button>
+<button type="submit" class="btn btn-primary">Save Changes</button>
+</div>
+</form>
+</div>
+
+<!-- Preferences Tab -->
+<div class="tab-pane fade" id="preferences" role="tabpanel" aria-labelledby="preferences-tab">
+<h4>Preferences</h4>
+<hr>
+<form id="preferences-settings-form">
+<h5>Display Settings</h5>
+<div class="mb-3">
+<label for="theme" class="form-label">Theme</label>
+<select class="form-select" id="theme">
+    <option value="light" selected>Light</option>
+    <option value="dark">Dark</option>
+    <option value="system">System Default</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="colorScheme" class="form-label">Color Scheme</label>
+<div class="d-flex gap-2 color-scheme-options">
+    <div class="color-option active" data-color="blue">
+        <div class="color-circle bg-primary"></div>
+    </div>
+    <div class="color-option" data-color="green">
+        <div class="color-circle bg-success"></div>
+    </div>
+    <div class="color-option" data-color="purple">
+        <div class="color-circle bg-purple"></div>
+    </div>
+    <div class="color-option" data-color="orange">
+        <div class="color-circle bg-orange"></div>
+    </div>
+    <div class="color-option" data-color="teal">
+        <div class="color-circle bg-teal"></div>
+    </div>
+</div>
+</div>
+<div class="mb-3">
+<label for="fontSize" class="form-label">Font Size</label>
+<select class="form-select" id="fontSize">
+    <option value="small">Small</option>
+    <option value="medium" selected>Medium</option>
+    <option value="large">Large</option>
+</select>
+</div>
+
+<h5 class="mt-4">Dashboard Settings</h5>
+<div class="mb-3">
+<label for="defaultView" class="form-label">Default View</label>
+<select class="form-select" id="defaultView">
+    <option value="dashboard" selected>Dashboard</option>
+    <option value="schedule">Schedule</option>
+    <option value="progress">Progress Tracking</option>
+    <option value="safety">Safety</option>
+</select>
+</div>
+<div class="mb-3">
+<label class="form-label">Dashboard Widgets</label>
+<div class="dashboard-widgets">
+    <div class="widget-item">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="taskWidget" checked>
+            <label class="form-check-label" for="taskWidget">
+                Tasks
+            </label>
+        </div>
+        <div class="widget-drag-handle">
+            <i class="fas fa-grip-vertical"></i>
+        </div>
+    </div>
+    <div class="widget-item">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="safetyWidget" checked>
+            <label class="form-check-label" for="safetyWidget">
+                Safety
+            </label>
+        </div>
+        <div class="widget-drag-handle">
+            <i class="fas fa-grip-vertical"></i>
+        </div>
+    </div>
+    <div class="widget-item">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="progressWidget" checked>
+            <label class="form-check-label" for="progressWidget">
+                Progress
+            </label>
+        </div>
+        <div class="widget-drag-handle">
+            <i class="fas fa-grip-vertical"></i>
+        </div>
+    </div>
+    <div class="widget-item">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="activityWidget" checked>
+            <label class="form-check-label" for="activityWidget">
+                Recent Activity
+            </label>
+        </div>
+        <div class="widget-drag-handle">
+            <i class="fas fa-grip-vertical"></i>
+        </div>
+    </div>
+    <div class="widget-item">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="weatherWidget">
+            <label class="form-check-label" for="weatherWidget">
+                Weather
+            </label>
+        </div>
+        <div class="widget-drag-handle">
+            <i class="fas fa-grip-vertical"></i>
+        </div>

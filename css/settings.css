@@ -1,0 +1,418 @@
+/*
+* SiteFlow - Settings CSS Styles
+*/
+
+/* Settings Navigation */
+.settings-nav .list-group-item {
+    border: none;
+    border-radius: 0;
+    padding: 0.75rem 1rem;
+    color: var(--body-color);
+    transition: all 0.3s ease;
+}
+
+.settings-nav .list-group-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.settings-nav .list-group-item.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+.settings-nav .list-group-item i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Tab Content */
+.tab-content {
+    padding: 1rem;
+}
+
+.tab-pane h4 {
+    margin-bottom: 1rem;
+}
+
+/* Profile Picture */
+.profile-picture-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-picture-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--primary);
+    border-radius: 50%;
+    padding: 0.25rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-picture-container:hover .profile-picture-overlay {
+    opacity: 1;
+}
+
+/* Form Switches */
+.form-switch {
+    padding-left: 2.5rem;
+}
+
+.form-switch .form-check-input {
+    height: 1.25rem;
+    width: 2.25rem;
+}
+
+.form-switch .form-check-label {
+    padding-top: 0.125rem;
+}
+
+/* Two-Factor Authentication */
+.two-factor-setup {
+    transition: all 0.3s ease;
+}
+
+/* Color Scheme Options */
+.color-scheme-options {
+    display: flex;
+    gap: 1rem;
+}
+
+.color-option {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+.color-option.active {
+    transform: scale(1.1);
+}
+
+.color-option.active .color-circle {
+    border: 2px solid #000;
+}
+
+.color-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+.bg-purple {
+    background-color: #8b5cf6;
+}
+
+.bg-orange {
+    background-color: #f97316;
+}
+
+.bg-teal {
+    background-color: #14b8a6;
+}
+
+/* Dashboard Widgets */
+.dashboard-widgets {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.25rem;
+}
+
+.widget-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.widget-item:last-child {
+    border-bottom: none;
+}
+
+.widget-drag-handle {
+    cursor: move;
+    color: #9ca3af;
+}
+
+/* Work Days */
+.work-days {
+    flex-wrap: wrap;
+}
+
+/* Role Settings */
+.roles-list {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.25rem;
+}
+
+.role-item {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.role-item:last-child {
+    border-bottom: none;
+}
+
+.role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: #f9fafb;
+}
+
+.role-header:hover {
+    background-color: #f3f4f6;
+}
+
+.role-title {
+    font-weight: 600;
+}
+
+.role-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.role-body {
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.role-description {
+    margin-bottom: 1rem;
+    color: #6b7280;
+}
+
+/* Permissions Grid */
+.permissions-grid {
+    margin-top: 1rem;
+}
+
+.permission-group {
+    padding: 0.5rem;
+    background-color: #f9fafb;
+    border-radius: 0.25rem;
+}
+
+.permission-group-header {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.permission-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.permission-item {
+    font-size: 0.875rem;
+}
+
+.permission-item i {
+    width: 16px;
+    text-align: center;
+    margin-right: 0.5rem;
+}
+
+/* Groups */
+.groups-list {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.25rem;
+}
+
+.group-item {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.group-item:last-child {
+    border-bottom: none;
+}
+
+.group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: #f9fafb;
+}
+
+.group-header:hover {
+    background-color: #f3f4f6;
+}
+
+.group-title {
+    font-weight: 600;
+}
+
+.group-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.group-body {
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.group-description {
+    margin-bottom: 1rem;
+    color: #6b7280;
+}
+
+.group-members {
+    margin-bottom: 1rem;
+}
+
+.group-member {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #f9fafb;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.member-role {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+/* Integrations */
+.integration-card {
+    display: flex;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.integration-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.integration-logo {
+    width: 64px;
+    height: 64px;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.integration-logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.integration-details {
+    flex: 1;
+}
+
+.integration-details h5 {
+    margin-bottom: 0.5rem;
+}
+
+.integration-details p {
+    color: #6b7280;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.integration-actions {
+    margin-top: auto;
+}
+
+/* Billing & Subscription */
+.current-plan {
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+}
+
+.plan-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.plan-price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.plan-period {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #6b7280;
+}
+
+.plan-users {
+    margin-bottom: 0.5rem;
+    color: #6b7280;
+}
+
+.plan-renewal {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.payment-card {
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: #3b82f6;
+}
+
+.billing-address {
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+    .permissions-grid .col-md-3 {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .settings-nav {
+        margin-bottom: 1rem;
+    }
+}
